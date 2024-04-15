@@ -1,0 +1,66 @@
+package com.Exponent.StreamAPI;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamDay2 {
+
+	public static void main(String[] args) {
+
+		// Duplicate Elements From an List/array.
+		// approach - 1
+//		Set<Integer> setofNumber = new HashSet<Integer>();
+//		Arrays.asList(2, 2, 3, 3, 4, 5, 6, 6, 7, 7, 8, 8, 5, 9).stream().distinct().forEach(System.out::println);
+
+		// approach - 2
+//		List<Integer> numbers = Arrays.asList(2, 2, 3, 3, 4, 5, 6, 6, 7, 7, 8, 8, 5, 9);
+//		numbers.stream().filter(n -> Collections.frequency(numbers, n) > 1).distinct().forEach(System.out::println);
+
+		// sorted
+//		Arrays.asList(1, 2, 3, 4, 5).stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+
+		List<Employee> listEmp = new ArrayList<Employee>();
+		listEmp.add(new Employee(1, "rahul", 19, 20000.0));
+		listEmp.add(new Employee(2, "kartik", 20, 10000.0));
+		listEmp.add(new Employee(3, "rohan", 23, 15000.0));
+		listEmp.add(new Employee(4, "sagar", 45, 45000.0));
+		listEmp.add(new Employee(5, "ganesh", 55, 100000.0));
+
+//		listEmp.stream().sorted(Comparator.comparingDouble(e -> ((Employee) e).getEsalary()).reversed())
+//				.forEach(System.out::println);
+
+		// map
+//		listEmp.stream().map(n -> n.getEname().toUpperCase()).forEach(System.out::println);
+
+		// min/max
+//		int a[] = { 3, 5, 67, 100 };
+//
+//		System.out.println(Arrays.stream(a).max().getAsInt());
+//		Arrays.stream(a).sorted().limit(1).forEach(System.out::println);
+//		System.out.println();
+
+		// collect -> collectors -> methods
+//		List<Employee> emp = listEmp.stream().filter(n -> n.getAge() < 25).collect(Collectors.toList());
+//		System.out.println(emp);
+
+		System.out
+				.println("------------------------------------------------------------------------------------------");
+
+		System.out.println();
+
+//		Arrays.asList("kartik", "pravin", "rahul", "rahil", "karan").stream().skip(2)
+//				.map(string -> string.toUpperCase()).collect(Collectors.toList()).forEach(System.out::println);
+
+		String str = "java is simple langauage";
+		String strarr[] = str.split(" ");
+		System.out.println(String.join("->", strarr));
+
+		String newStr = Arrays.stream(str.split(" ")).map(n -> new StringBuffer(n).reverse())
+				.collect(Collectors.joining(" "));
+
+		System.out.println(newStr);
+
+	}
+}
