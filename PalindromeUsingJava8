@@ -1,0 +1,27 @@
+package com.Exponent.StreamAPI;
+
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class PalindromeNumber {
+
+	public static void main(String[] args) {
+
+		int number = 125;
+
+		if (isPalindrome(number)) {
+
+			System.out.println("Palindrome");
+		} else {
+			System.out.println("This is not Palindrome");
+		}
+	}
+
+	private static boolean isPalindrome(int number) {
+
+		String stringNumber = IntStream.of(number).mapToObj(String::valueOf).map(n -> new StringBuilder(n).reverse())
+				.collect(Collectors.joining());
+
+		return number == Integer.parseInt(stringNumber);
+	}
+}
