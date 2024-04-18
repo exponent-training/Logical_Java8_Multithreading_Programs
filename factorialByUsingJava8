@@ -1,0 +1,15 @@
+package com.Exponent.StreamAPI;
+
+import java.util.stream.IntStream;
+
+public class FactorialNumber {
+
+	public static void main(String[] args) {
+//1*2*3*4*5 -> 120;
+		int n = 5;
+
+		String str = "hello";
+		int fact = IntStream.rangeClosed(1, n).reduce(1, (x, y) -> x * y);
+		System.out.println(fact);
+	}
+}
