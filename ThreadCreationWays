@@ -1,0 +1,42 @@
+
+package com.Exponent.Day1;
+
+public class Mythread2 implements Runnable {
+
+	@Override
+	public void run() {
+
+		System.out.println("Mythreaad -2");
+	}
+}
+----------------------------------------------------------------------------------
+
+package com.Exponent.Day1;
+
+public class Mythread extends Thread{
+
+	@Override
+	public void run() {
+
+		System.out.println("MyThread");
+
+	}
+}
+-------------------------------------------------------------------------------------
+package com.Exponent.Day1;
+
+public class Application {
+
+	public static void main(String[] args) {
+
+		// By extending thread class
+		Mythread m = new Mythread();
+		m.start();
+
+		// By implementing runnable interface
+		Mythread2 m1 = new Mythread2();
+		Thread t1 = new Thread(m1);
+		t1.start();
+
+	}
+}
