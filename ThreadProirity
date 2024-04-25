@@ -38,3 +38,29 @@ public class Mythread3 extends Thread {
 //		System.out.println(Thread.currentThread().getName());
 	}
 }
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+package com.Exponent.Day1;
+
+public class proritiesThread extends Thread {
+
+	@Override
+	public void run() {
+		for (int i = 1; i <= 10; i++) {
+			System.out.println("Custome thread");
+		}
+	}
+
+	public static void main(String[] args) {
+
+		// win 11 -> thread proiperty
+		proritiesThread pt = new proritiesThread();
+		pt.start();
+		pt.setPriority(10);
+		for (int i = 1; i <= 10; i++) {
+			System.out.println("main thread");
+		}
+
+	}
+}
