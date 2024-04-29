@@ -1,0 +1,13 @@
+package com.Exponent.Day3;
+
+public class Application {
+
+	public static void main(String[] args) {
+		display d = new display();
+		Mythread t1 = new Mythread(d, "Raju");
+		Mythread t2 = new Mythread(new display(), "Rani");
+		t1.start();
+		t2.start();
+
+	}
+}
