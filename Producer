@@ -1,0 +1,43 @@
+package com.Exponent.Day4;
+
+import java.util.Queue;
+
+public class Producer extends Thread {
+
+	private Queue<Integer> nlist;
+	private final int MAX_SIZE;
+
+	public Producer(Queue<Integer> nlist, int mAX_SIZE) {
+		super();
+		this.nlist = nlist;
+		MAX_SIZE = mAX_SIZE;
+	}
+
+	public void ProduceItem() {
+		synchronized (nlist) {
+			for (int i = 1; i <= 100; i++) {
+				while (nlist.size() >= MAX_SIZE) {
+					try {
+						System.out.println("Producer is waiting for consumer for taking the items");
+						nlist.wait();
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+
+				}
+//				Thread.sleep(1000);
+				System.out.println(i + "added");
+				nlist.add(i);
+				nlist.notifyAll();
+
+			}
+
+		}
+	}
+
+	@Override
+	public void run() {
+
+		ProduceItem();
+	}
+}
